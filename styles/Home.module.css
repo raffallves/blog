@@ -12,6 +12,16 @@
   align-items: center;
 }
 
+.header {
+  min-height: 7vh;
+  background-color: black;
+  width: 100%;
+}
+
+.header a {
+  color: white;
+}
+
 .footer {
   display: flex;
   flex: 1;
