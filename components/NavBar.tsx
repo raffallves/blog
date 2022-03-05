@@ -16,10 +16,6 @@ export default function NavBar<Any>() {
                     font-size: 1.2rem;
                 }
 
-                #about {
-                    align-self: center;
-                }
-
                 .logo {
                     position: relative;
                 }
@@ -59,9 +55,6 @@ export default function NavBar<Any>() {
                         </g>
                     </svg>
                     </a>
-                </Link>
-                <Link href={'/about'}>
-                    <a id={'about'}>About</a>
                 </Link>
             </nav>
         </>
