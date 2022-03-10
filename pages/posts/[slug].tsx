@@ -1,27 +1,39 @@
-export default function Post<Any>({ post }) {
+import { GetStaticPaths, GetStaticProps } from "next"
+import { getAllPostSlugs, getPostData } from "../../lib/getPosts"
+import Date from '../../components/date'
+import Head from 'next/head'
+
+export default function Post({ postData }) {
     return (
         <>
-            <div>{post}</div>
+            <Head>
+                <title>{postData.title}</title>
+            </Head>
+            {postData.title}
+            <br />
+            {postData.slug}
+            <br />
+            <Date dateString={postData.date} />
+            <br />
+            <div dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
         </>
     )
 }
 
-export const getStaticProps:GetStaticProps = async () => {
-    const res = await fetch('https://raffallves-blog.s3.amazonaws.com/one.mdx')
-    const post = await res.json()
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+    const postData = await getPostData(params.slug)
 
     return {
         props: {
-            post
+            postData
         }
     }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    
+    const paths = getAllPostSlugs()
     return {
-        paths: [
-            { params: {...} }
-        ]
+        paths,
+        fallback: false
     }
 }
