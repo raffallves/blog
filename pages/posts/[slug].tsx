@@ -6,7 +6,7 @@ export default function Post<Any>({ post }) {
     )
 }
 
-export async function getStaticProps<GetStaticProps>() {
+export const getStaticProps:GetStaticProps = async () => {
     const res = await fetch('https://raffallves-blog.s3.amazonaws.com/one.mdx')
     const post = await res.json()
 
@@ -17,6 +17,11 @@ export async function getStaticProps<GetStaticProps>() {
     }
 }
 
-export async function getStaticPaths<GetStaticPaths>() {
+export const getStaticPaths: GetStaticPaths = async () => {
     
+    return {
+        paths: [
+            { params: {...} }
+        ]
+    }
 }
