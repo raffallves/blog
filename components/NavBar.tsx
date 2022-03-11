@@ -3,7 +3,7 @@ import Logo from './Logo'
 
 export default function NavBar<Any>() {
     return (
-        <>
+        <header>
             <style jsx>{`
                 nav {
                     display: flex;
@@ -24,6 +24,6 @@ export default function NavBar<Any>() {
                     </a>
                 </Link>
             </nav>
-        </>
+        </header>
     )
 }
