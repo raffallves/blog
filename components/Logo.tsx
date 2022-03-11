@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Logo<Any>() {
     return (
         <>
@@ -33,7 +35,11 @@ export default function Logo<Any>() {
                 </g>
                 <g className={'contour'}>
                     <path id={'outer'} d="M14.4675 1L1 37.9308L14.4675 61.2159L27.7688 37.9348L14.4675 1Z"/>
-                    <path id={'inner'} d="M6.17935 37.3932L14.5045 51.8148L22.8416 37.3932L14.5045 14.5237L6.17935 37.3932Z"/>
+                    <Link href={'/'}>
+                        <a>
+                            <path id={'inner'} d="M6.17935 37.3932L14.5045 51.8148L22.8416 37.3932L14.5045 14.5237L6.17935 37.3932Z"/>
+                        </a>
+                    </Link>
                 </g>
             </svg>
         </>

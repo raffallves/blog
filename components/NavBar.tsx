@@ -18,11 +18,7 @@ export default function NavBar<Any>() {
 
             `}</style>
             <nav>
-                <Link href={'/'}>
-                    <a>
-                        <Logo />
-                    </a>
-                </Link>
+                <Logo />
             </nav>
         </header>
     )

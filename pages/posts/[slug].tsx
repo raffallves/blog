@@ -9,12 +9,6 @@ export default function Post({ postData }) {
             <Head>
                 <title>{postData.title}</title>
             </Head>
-            {postData.title}
-            <br />
-            {postData.slug}
-            <br />
-            <Date dateString={postData.date} />
-            <br />
             <div dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
         </>
     )
