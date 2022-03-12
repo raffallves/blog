@@ -11,6 +11,7 @@ export default function Footer<Any>() {
                     flex-flow: row wrap;
                     justify-content: center;
                     align-itens: center;
+                    z-index: 10;
                 }
 
                 hr {
