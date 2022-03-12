@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import { getAllPostSlugs, getPostData } from "../../lib/getPosts"
-import Date from '../../components/date'
+import Date from '../../components/Date'
 import Head from 'next/head'
 
 export default function Post({ postData }) {

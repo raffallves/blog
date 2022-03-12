@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
-import Date from '../components/date'
+import Date from '../components/Date'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { getSortedPostsData } from '../lib/getPosts'
 
@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Home: NextPage = ({ allPostsData }: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
-        < >
+        <>
             
             <Head>
                 <title>Rafael Alves</title>
