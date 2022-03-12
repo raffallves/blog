@@ -3,7 +3,7 @@ export default function Footer<Any>() {
         <footer>
             <style jsx>{`
                 footer {
-                    position: absolute;
+                    position: relative;
                     bottom: 0;
                     width: 100%;
                     height: 10vh;
@@ -22,7 +22,7 @@ export default function Footer<Any>() {
             
             `}</style>
             <hr/>
-            <p>by <strong>Rafael Alves 🧠📚💲🌌</strong></p>
+            <p>by <strong>Rafael Alves 🧠📚💰🌌</strong></p>
         </footer>
     )
 }

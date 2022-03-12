@@ -9,9 +9,10 @@ export default function Layout<Any>({ children }) {
                 main {
                     display: flex;
                     justify-content: center;
-                    margin-right: 10%;
-                    margin-left: 10%;
+                    margin-right: 5%;
+                    margin-left: 5%;
                     padding-top: 100px;
+                    padding-bottom: 50px;
                 }
             `}</style>
             <main>{children}</main>

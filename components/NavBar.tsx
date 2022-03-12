@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Logo from './Logo'
 
 export default function NavBar<Any>() {
@@ -13,6 +12,7 @@ export default function NavBar<Any>() {
                     background: black;
                     color: white;
                     height: 10vh;
+                    width: 100%;
                     font-size: 1.2rem;
                 }
 
