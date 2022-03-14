@@ -1,10 +1,248 @@
-# Header
+import Image from 'next/image'
+import Head from 'next/head'
+import {MDXProvider} from '@mdx-js/react'
 
-import Date from '../../components/date'
+export default function Layout({children}) {
+    return (
+        <MDXProvider>
+            <article>
+                <Head>
+                    <title>Case Booking.com | G4</title>
+                    <link rel={'stylesheet'} href={'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css'} />
+                </Head>
+                <style jsx>{`
 
-<Date dateString={'2022-03-11'} />
 
-<svg><circle cx={50} cy={50} r={'50'} ></circle></svg>
+                article {
+                    justify-content: start;
+                    margin-left: 5%;
+                    margin-right: 5%;
+                    row-gap: 3em;
+                }
 
-paragraph
+                a {
+                    color: red;
+                    text-decoration: underline;
+                    target: _blank;
+                }
 
+                a:hover {
+                    color: red;
+                    text-decoration: none;
+                }
+
+                h1 {
+                    text-align: center;
+                    font-size: 2em;
+                }
+
+                h2 {
+                    margin-top: 2rem;
+                    margin-bottom: 2rem;
+                    font-size: 1.5em;
+                }
+
+                h3 {
+                    margin-top: 2rem;
+                    margin-bottom: 2rem;
+                    font-size: 1.5sem;
+                }
+
+                p {
+                    font-size: 1.2em;
+                }
+
+                @media only screen and (min-width: 768px) {
+
+                    article {
+                        margin-left: 15%;
+                        margin-right: 15%;
+                    }
+
+                }
+                `}</style>
+                {children}
+            </article>
+        </ MDXProvider>
+    )
+}
+
+<Image src={'/booking/hero.png'} alt={'Logo da Booking'} width={'2000'} height={'800'} />
+
+# Lições do Case da HBR sobre a Booking.com   
+
+
+- Conteúdo
+    - Principais insights
+        - [Visão](#visão)
+        - [Dados](#dados)
+        - [Cultura e Governança](#cultura)
+        - [*Flywheel*](#flywheel)
+    - Riscos identificados
+        - [Alavancas](#alavancas)
+        - [*Branding*](#branding)
+        - [Canais](#canais)
+        - [Caos](#caos)
+    - Moldando os insights à situação da G4
+        - [Plataforma](#plataforma)
+        - [Otimização de tempo](#tempo)
+    - [Meu case pessoal de sucesso](#meu-case)
+
+
+
+## Insights Valiosos: Os Diversos Acertos da Booking
+
+### <a name='visão'></a>Visão
+
+Paul Graham — um dos fundadores da Y-combinator, uma das mais famosas incubadoras de startups — <a target='_blank' href='http://www.paulgraham.com/growth.html'>diz em seu blog</a> que o que diferencia as startups de empresas tradicionais é o fato de que elas foram feitas para **crescerem rápido**.
+
+Essa afirmação por si só implica diversos dos fatores observados no case da Booking.com, dentre eles o catalisador de toda a operação: a ideia visionária.
+
+Claro que a essa altura já enraizamos o que <a target='_blank' href='https://instagram.com/tallisgomes/'>Tallis Gomes</a> quer dizer com "ideias valem 5 centavos a bacia", e sabemos que o que mais conta para o sucesso da operação é o casamento entre planejamento e execução; acontece que sem a ideia, não há o que executar.
+
+Uma ideia visionária é aquela que segue uma projeção lógica de acontecimentos futuros em relação à determinado cenário, o que permite uma janela maior para preparo, testes e implementação — uma vantagem competitiva chave quando se trata de crescimento exponencial.
+
+Foi esse o raciocínio de Geert-Jan Bruinsma ao fundar a Bookings.nl no final de 1996 prevendo (talvez em uma escala menor) o tamanho que a internet seria capaz de atingir, enquanto a maioria ainda tentava entender como ela funcionava.
+
+### <a name='dados'></a>*Data-driven*
+
+Dados sempre foram essenciais para o alcance de objetivos — afinal, não foi pra isso que inventamos a bússola, o relógio, a escrita e tantas outras invenções?
+
+É interessante ver que essa noção sempre esteve presente desde os primórdios da Booking, porém mais surpreendente ainda é o fato de que eles desenvolveram uma solução *in-house* completa para atender essa demanda interna.
+
+Eu defendo a ideia de que os dados utilizados pela empresa deveriam ser sua propriedade, <a target='_blank' href='https://www.blastanalytics.com/blog/can-you-trust-your-google-analytics-data'>o que não acontece com produtos "de prateleira" como o Google Analytics.</a>
+
+Entendo que não é tão simples — o *trade-off* entre agilidade e custo de implementação acaba fazendo com que não haja muita escolha nas fases pré-*product/market fit*, além de legislações como a <a target='_blank' href='http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm'>LGPD</a> multiplicarem ainda mais os graus de complexidade.
+
+Por isso a *pipeline* de dados me chamou bastante atenção, sendo capaz de integrar todas as áreas da organização sob uma mesma base de conhecimento e facilitar o processo de teste de hipóteses, além de acelerar imensamente o processo de decisão descentralizado que molda os aspectos da sua cultura organizacional.
+
+### <a name='cultura'></a>Cultura e Governança
+
+Talvez a parte mais difícil de acertar, a cultura da Booking figura entre os seus ativos mais valiosos. Desde o *onboarding* o colaborador já é incentivado a trazer suas próprias hipóteses para a mesa, que dependendo da complexidade pode ser testada no mesmo dia.
+
+Além do entendimento de que "é aceitável falhar" já que, em média, apenas 1 em cada 10 testes são bem sucedidos, os times contam com o apoio de um laboratório de UX *in-house* que fornece todos os tipos de pesquisas qualitativas e quantitativas sob demanda.
+
+A falta de burocracia da liderança descentralizada garante a agilidade e volume de testes (quadrilhões por dia) e contribui ainda mais para a comunicação entre as diferentes áreas da companhia.
+
+Levando em consideração a complexidade do ambiente, faz sentido adotar esse modelo mais flexível de governança — as pequenas células espalhadas ao redor do mundo têm mais autonomia e conseguem se auto-organizar devido à clareza de KPIs e sua North Star Metric focada em conversões, proporcionando o <a target='_blank' href='https://www.researchgate.net/publication/266217560_Understanding_Complex_Systems'>alinhamento necessário ao êxito dentro do caos presente em um sistema complexo.</a>
+
+### <a name='flywheel'></a>*Flywheel*
+
+As mudanças econômicas do século XXI impulsionadas pelo implacável progresso da <a target='_blank' href='https://en.wikipedia.org/wiki/Moore%27s_law'>Lei de Moore</a> permitem com que empresas contemporâneas atinjam <a target='_blank' href='https://www.nytimes.com/2022/01/03/technology/apple-3-trillion-market-value.html#:~:text=In%20August%202018%2C%20Apple%20became,unfathomable%20a%20few%20years%20ago.'>patamares nunca antes vistos.</a>
+
+Ao se aperfeiçoarem nas táticas do <a target='_blank' href='https://www.youtube.com/watch?v=RyTQ5-SQYTo'>jogo infinito</a> essas empresas passaram a entender que a venda não significa o fim da partida; a mudança de paradigma traz o foco para a <a target='_blank' href='https://www.rocketsource.co/blog/the-revenue-operations-to-revenue-acceleration-framework-every-modern-business-must-know/'>jornada do cliente</a> como um todo.
+
+Não é preciso pensar muito para se chegar à conclusão de que a única maneira de conseguir isso é dominando toda a cadeia de distribuição, e é exatamente isso que estão fazendo. Os grandes *players* agora são <a target='_blank' href='https://www.nytimes.com/2017/03/21/magazine/platform-companies-are-becoming-more-powerful-but-what-exactly-do-they-want.html'>plataformas</a>, hegemonizando um dos 4 Ps do marketing: a praça (dependendo do marketplace, o P de preço também sofre esse domínio);
+
+O *flywheel* decorrente dessa hegemonia se torna algo estrondoso — no caso da Booking, o aumento constante na taxa de reservas por dia garante com que os hotéis, pousadas e locações continuem disponibilizando seus serviços na plataforma, retroalimentando o loop de de experiências positivas para o consumidor final.
+
+Há muito a aprender com esse *case* e muitos outros pontos me chamaram a atenção, como por exemplo o M&A estratégico muito bem conduzido pelo The Priceline Group, mas ainda precisamos de tempo para as críticas.
+
+## Possíveis Riscos
+
+### <a name='alavancas'></a>Alavancas
+
+Não que seja algo do qual eles não estejam cientes — é inclusive mencionado no *case* — mas focar apenas em uma alavanca (aquisição) e esquecer todas as outras me parece um tiro no pé.
+
+Sim, a monetização — impactada por serviços adjacentes como passagens aéreas e aluguel de veículos — acaba sendo beneficiada pelas empresas parceiras que fazem parte do ecosistema da *holding*.
+
+Mas e quanto à retenção?
+
+Por mais que o mercado de reservas de hospedagem e turismo em si seja passivo de baixa retenção, não acho que isso seja desculpa para não rodar testes focados nesssa alavanca também; principalmente quando se trata de uma empresa com mais de 20 anos de mercado.
+
+Promoções em períodos de menor demanda para regiões próximas, *machine learning* com sugestões de destinos baseados em viagens anteriores, auxílio no planejamento de viagens disparos de e-mail para cohorts que viajam em épocas parecidas são apenas algumas ideias para serem validadas.
+
+### <a name='branding'></a>*Branding*
+
+O embate entre performance e reconhecimento de marca já se tornou um clássico do marketing digital — por mais que não haja uma resposta correta, é preocupante pensar no que uma inconsistência de marca tão grande quanto vemos com a Booking pode causar no longo prazo.
+
+É verdade que o próprio nome da empresa favorece a relevância da marca já que significa literalmente "reserva" em inglês, o <a target='_blank' href='https://www.berlitz.com/en-uy/blog/most-spoken-languages-world'>idioma mais falado no mundo.</a> Não é a toa que <a target='_blank' href='https://www.forbes.com/sites/bizcarson/2018/02/21/the-priceline-group-name-change-booking-holdings-inc/?sh=8cc331b4ca10'>a *holding* inteira decidiu mudar de nome.</a>
+
+Mas será que os clientes realmente lembram da marca alguns meses após a viagem ou apenas da cidade, quiçá do nome do hotel?
+
+Levando em conta os quadrilhões de variações nas *landing pages* rodando simultâneamente, e movimentos ousados como aqueles descritos no início e final do *case*, é de se pensar se isso não afeta as perspectivas futuras da Booking, tornando-a mais vulnerável perante a crescente potência dos seus concorrentes.
+
+### <a name='canais'></a>Canais
+
+Uma coisa da qual eu senti falta na abordagem do *case* foi em relação às fontes de tráfego: é mencionado que existe tanto um site quanto um app, mas não em qual dos dois há mais acessos.
+
+Por lógica entende-se que seria no site, mas é uma lógica preocupante — a demanda por reservas dificilmente irá cessar, mas quando se tem o seu próprio canal de aquisição competindo com você as coisas ficam menos otimistas.
+
+Claro, isso não quer dizer que é o fim da companhia. Se assim fosse o Google Shopping já teria acabado com todos os *marketplaces*.
+
+Hoje, <a target='_blank' href='https://www.similarweb.com/pt/website/booking.com/#traffic-sources'>mais de 40% do tráfego do site da Booking é direto</a> (provavelmente boca-a-boca ou o fator "nome conveniente" citado anteriormente), e <a target='_blank' href='https://www.similarweb.com/pt/website/booking.com/#keywords'>mais de 25% do tráfego de redes de pesquisa são oriundos de palavras-chave institucionais.</a>
+
+Ao que tudo indica, não é um cenário alarmante — mas eu já estaria estudando para otimizar outros canais de aquisição e procurando deslocar minha empresa de uma posição frágil como essa.
+
+### <a name='caos'></a>Beira do Caos
+
+O problema com o "caos organizado" de um sistema complexo é que <a target='_blank' href='https://en.wikipedia.org/wiki/Edge_of_chaos'>pode fácilmente se tornar apenas caos</a>; o exato limiar desse ponto de criticalidade é totalmente imprevisível.
+
+Essa é também a principal crítica que eu tenho em relação às <a target='_blank' href='https://ethereum.org/en/dao/'>DAOs da Web 3.0</a> — o sistema descentralizado, com toda a sua flexibilidade e autonomia pode sim se auto-organizar efetivamente, mas é ilusão acreditar que os *outcomes* disso sempre serão positivos.
+
+A humanidade ainda precisa de líderes para ser guiada.
+
+No *case* isso também é reconhecido quando mencionam experimentos que interferem uns com os outros e precisam ser abortados, e também ao admitir que toda a otimização na performance do negócio existente não serve muito quando se precisa de projetos completamente novos.
+
+Existem sim empresas altamente descentralizadas que conseguem ao mesmo tempo manter um ambiente de inovação — vide a chinesa <a target='_blank' href='https://hbr.org/2007/02/raising-haier'>Haier</a> — mas exceção não é regra, e acredito que descentralização tenha seus limites (por mais que soe empolgante e libertador).
+
+## G4: Explorando Os Insights
+
+### <a name='plataforma'></a>Plataforma
+
+Todos já sabemos o quão precaria é a educação brasileira, principalmente quando se trata de empreendedorismo.
+
+O lado positivo é que um nível alto de precariedade implica em grandes oportunidades de melhoria e disrupção no mercado. O EAD já vem causando essa mudança, e principalmente no ramo de marketing digital já existem algumas abordagens parecidas com o que vou citar agora, como o <a target='_blank' href='https://onovomercado.com/'>mercado de trabalho do Ícaro de Carvalho.</a>
+
+Assim como a Booking investiu em um formato de plataforma, unindo oferta e demanda em um único lugar, acredito que o futuro da G4 possa ser parecido.
+
+Claro que é uma estratégia muito mais delicada do que parece — parcerias de contratação com empresas tradicionais devem envolver leis e aspectos contratuais que exigiriam um alto investimento em advogados, fora o planejamento e estratégia envolvidos.
+
+Também estou ciente de que boa parte das empresas não têm recursos suficientes para contratar executivos formados — um gargalo desafiador de se resolver.
+
+### <a name='tempo'></a>As Cavalariças de Augias
+
+Um dos 12 trabalhos de Héracles foi o de limpar o estábulo do rei Augias, filho do deus Hélio, que havia acumulado uma enorme quantidade de estrume ao longo de muitos anos.
+
+De maneira astuta, Héracles desviou o curso de um rio e completou a tarefa em um único dia.
+
+Similarmente, o investimento feito pela Booking em uma estrutura de dados interna fez com que fosse possível completar mais de um teste (quadrilhões!) no curso de um único dia.
+
+Sei que é um investimento alto (tanto financeiro quanto de energia e tempo), mas acredito que os benefícios que a G4 teria ao investir em algo parecido seriam absurdos — não apenas em otimização de tempo na agilidade de execução, mas também na vantagem competitiva enorme que teria em relação aos concorrentes, ficando anos-luz à frente de qualquer EdTech brasileira que conheço.
+
+## <a name='meu-case'></a>Meu Case: Estruturando Um Canal de Aquisição do Zero
+
+Há pouco mais de um ano e meio venho prestando serviços de assessoria em marketing de performance para pequenas empresas, e um de meus melhores clientes tem tido bastante resultados com o canal que estruturei para ele.
+
+Uma clínica de psicologia — ou seja, serviço B2C — encontra sua demanda muito facilmente em canais como redes de pesquisa.
+
+Como não podíamos esperar mais de um ano para colher os frutos do SEO, decidi optar pelo Google Ads com um investimento inicial de R$ 500,00/mês.
+
+Em relação à estrutura da campanha, vale a pena citar o fato de que, após alguns testes, consegui reduzir substancialmente o CPC em comparação com os concorrentes analisados na mesma região — o acesso é cerca de 300% mais barato para o meu cliente.
+
+Outro detalhe de que me orgulho bastante é na mensuração — utilizar o Google Tag Manager é relativamente fácil, mas acertar com precisão quais elementos e ações devem disparar a *tag* não é tão simples para quem é leigo em programação (na época estava começando a estudar sobre).
+
+Consegui rastrear todos os botões do site com algumas linhas de código no *backend* do Wordpress. Inclusive, o código é esse aqui:
+
+```javascript
+
+(function($) {
+	
+  $('#button1').on('click', () => {
+	  dataLayer.push({
+	  	'event': 'button1-click'
+  })});
+  
+  $('#button2').on('click', () => {
+	  dataLayer.push({
+		 'event': 'button2-click'
+	  })});
+})( jQuery );
+
+```
+
+Hoje o cliente já dobrou o investimento nesse canal, reformou o estabelecimento para aumentar a capacidade de atendimento e está cogitando abrir outra unidade até o final do ano.
+
+O CAC do público atual gira em torno de R$ 200,00 à R$ 300,00 — o ROI está na casa dos 3x.
+
+Foi um desafio interessante que me auxiliou a entender com mais clareza o funcionamento do canal de SEM, e com isso elaborar estratégias mais eficientes, pensando também em como os cohorts desse canal se comportam ao longo do seu tempo de vida.
