@@ -1,4 +1,4 @@
-const { default: rehypeHighlight } = require('rehype-highlight')
+import rehypeHighlight from 'rehype-highlight'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
