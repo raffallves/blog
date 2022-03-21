@@ -1,7 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
-import Date from '../components/Date'
 import Card from '../components/Card'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { getSortedPostsData } from '../lib/getPosts'
@@ -32,6 +30,7 @@ const Home: NextPage = ({ allPostsData }: InferGetStaticPropsType<typeof getStat
                     flex-flow: row wrap;
                     justify-content: center;
                     width: 100%;
+                    gap: 2em;
                 }
             `}</style>
 
