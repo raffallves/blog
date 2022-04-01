@@ -1,5 +1,3 @@
-// import rehypeHighlight from 'rehype-highlight'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -11,7 +9,7 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [],
-    rehypePlugins: [/*rehypeHighlight*/],
+    rehypePlugins: [],
     // To use `MDXProvider`, uncomment the following line.
     providerImportSource: '@mdx-js/react',
   },
