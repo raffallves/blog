@@ -8,6 +8,7 @@ export default function Layout<Any>({ children }) {
             <style jsx>{`
                 main {
                     display: flex;
+                    flex-flow: row wrap;
                     justify-content: center;
                     margin-right: 5%;
                     margin-left: 5%;

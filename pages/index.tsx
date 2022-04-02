@@ -25,6 +25,19 @@ const Home: NextPage = ({ allPostsData }: InferGetStaticPropsType<typeof getStat
             </Head>
 
             <style jsx>{`
+
+                h1 {
+                    font-size: 3em;
+                    text-align: center;
+                }
+
+                h1 > mark {
+                    background: linear-gradient(120deg, #ff0000 0%, #ff0000 100%);
+                    background-repeat: no-repeat;
+                    background-size: 100% 35%;
+                    background-position: 0 90%;
+                }
+
                 .card-section {
                     display: flex;
                     flex-flow: row wrap;
@@ -32,8 +45,10 @@ const Home: NextPage = ({ allPostsData }: InferGetStaticPropsType<typeof getStat
                     width: 100%;
                     gap: 2em;
                 }
+            
             `}</style>
 
+            <h1>My thoughts on <mark>Technology</mark></h1>
 
             <section className={'card-section'}>
                 {allPostsData.map(({slug, date, title}) => (
