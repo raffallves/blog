@@ -28,19 +28,13 @@ export default function Post({ postData }) {
             <style jsx>{`
                 .back-to-top {
                     position: fixed;
-                    bottom: 20px;
+                    bottom: 80px;
                     right: 20px;
-                    font-size: 50px;
-                    background: grey;
+                    font-size: 30px;
                     color: red;
                     cursor: pointer;
-                    border-radius: 50%;
+                    background: none;
                     border: none;
-                    box-shadow: 0 5px 10px #ccc;
-                }
-
-                .back-to-top:hover {
-                    background: black;
                 }
 
                 pre > code {
@@ -52,7 +46,7 @@ export default function Post({ postData }) {
             </Head>
             <div dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
             {showButton && (
-                <button onClick={scrollToTop} className={'back-to-top'}>⁛</button>
+                <button onClick={scrollToTop} className={'back-to-top'}>☝</button>
             )}
         </>
     )
