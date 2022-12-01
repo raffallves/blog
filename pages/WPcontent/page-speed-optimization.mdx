@@ -116,7 +116,7 @@ So third thing to watch out for: **additional network requests**.
 
 And last but not least, if while waiting for those requests to come through the browser stops reading the file it was reading before, that's even more waiting time for every new request made. So fourth thing to watch out for: **render-blocking resources**.
 
-If sum all those extra waiting times together it becomes easy to understand how a website can go past the 10-second mark when loading.
+If you sum all those extra waiting times together it becomes easy to understand how a website can go past the 10-second mark when loading.
 
 If you haven't closed the PageSpeed Insights' tab yet, you'll notice they suggest some actions to improve the page's performance that are very similar to what we just discussed here:
 
@@ -124,31 +124,31 @@ If you haven't closed the PageSpeed Insights' tab yet, you'll notice they sugges
 
 So now that the potential roots of our problem are clear, what can we do to fix them?
 
-## <a name='file-size'></a> The low-hanging fruit
+## <a name='file-size'></a> Reducing file size
 
 The first order of business is to cut what's holding you back.
 
 You'd be surprised at how easy it is to keep it light on the web. In fact, doing that on a WordPress website is even easier — all it takes is to enable (or disable) the right plugins.
 
-It's time to pull out your browser's developer tools. If you're not familiar with them already, just right-click anywhere on your page and pick the "Inspect" option on the menu that shows up. You'll a whole new section pop up on the same page, with lots of cool new features. Look for the "Network" one, and refresh the page without closing the Dev Tools.
+It's time to pull out your browser's developer tools. If you're not familiar with them already, just right-click anywhere on your page and pick the "Inspect" option on the menu that shows up. You'll see a whole new section pop up on the same page, with lots of cool new features. Look for the "Network" one, and refresh the page without closing the Dev Tools.
 
 <Image src={'/wp/perf4.png'} alt={'Browser developer tools\' network tab'} width={'1000'} height={'400'} />
 
 You can now see all the requests your browser makes while the page loads and how long they take to complete. Usually, an unoptimized WordPress website will load a bunch of unused CSS and JS (stylesheets and code) from installed plugins.
 
+There are probably one or two old plugins that you don't use anymore and that can be deleted, which will help a bit in a faster loading speed.
+
 By switching to the "Coverage" tab it'll be even easier to see which loaded resources don't get used as much as you'd think.
 
 <Image src={'/wp/perf5.png'} alt={'Browser developer tools\' coverage tab'} width={'800'} height={'400'} />
 
-There are probably one or two old plugins that you don't use anymore and that can be deleted, which will help a bit in a faster loading speed.
-
 You can also install specific plugins such as <a target='_blank' href='https://wordpress.org/plugins/hummingbird-performance/'>Hummingbird</a> which will defer the loading of those unused files for you. It'll also minify and compress them (reduce their size), among other things that we'll talk about later on.
 
-## <a name='render-blocking'></a> No more blocking and unnecessary requests
+## <a name='render-blocking'></a> No more render-blocking and unnecessary requests
 
 As stated before, render-blocking resources are also a major issue when it comes to loading speed.
 
-Similar to the previous one, the first thing you should think of doing is to eliminate whatever is possible from the files.
+Similar to what we did earlier, the first thing you should think of doing is to eliminate whatever is possible from the files.
 
 Secondly, deferring or inlining critical assets can help the browser load particular resources more intelligently. By that, I mean that these resources will only load when and if they're needed, not all at once along with the entire page.
 
@@ -156,7 +156,7 @@ Secondly, deferring or inlining critical assets can help the browser load partic
 
 The same is true for the extra unnecessary network requests — instead of waiting to make those requests (adding to the total load time), the plugin can preload those resources, which means it'll indicate to the browser that those requests should be fetched as soon as possible.
 
-## <a name='server-response'></a> First-class service
+## <a name='server-response'></a> Faster server response time
 
 This one is a little trickier. Messing with server specifications takes a little bit of work, which we won't go into in this post.
 
@@ -176,6 +176,6 @@ To wrap things up, here is a summary of what we discussed in this post:
 
 There's more to this subject, like optimizing images, CDNs, optimizing fonts, lazy-loading, Lighthouse metrics analysis, and much more. But if you manage to implement the simple changes mentioned here your WordPress performance is bound to skyrocket; the rest is just fine tuning.
 
-Soon enough your score will look like the one below and your website will be accessible to anyone.
+Soon enough your score will look like the one below and your website will be accessible to anyone, anywhere.
 
 <Image src={'/wp/perf6.png'} alt={'Good PageSpeed Insights score'} width={'600'} height={'300'} />
