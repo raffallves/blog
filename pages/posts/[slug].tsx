@@ -14,6 +14,16 @@ export default function Post({ postData }) {
                 setShowButton(false)
             }
         })
+
+        return () => {
+            window.removeEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    setShowButton(true)
+                } else {
+                    setShowButton(false)
+                }
+            })
+        }
     }, [])
 
     const scrollToTop = () => {
@@ -39,6 +49,54 @@ export default function Post({ postData }) {
 
                 pre > code {
                     border-radius: 50%;
+                }
+
+                article {
+                    justify-content: start;
+                    margin-left: 5%;
+                    margin-right: 5%;
+                    row-gap: 3em;
+                }
+
+                a {
+                    color: red;
+                    text-decoration: underline;
+                    target: _blank;
+                }
+
+                a:hover {
+                    color: red;
+                    text-decoration: none;
+                }
+
+                h1 {
+                    text-align: center;
+                    font-size: 2em;
+                }
+
+                h2 {
+                    margin-top: 2rem;
+                    margin-bottom: 2rem;
+                    font-size: 1.5em;
+                }
+
+                h3 {
+                    margin-top: 2rem;
+                    margin-bottom: 2rem;
+                    font-size: 1.5sem;
+                }
+
+                p {
+                    font-size: 1.2em;
+                }
+
+                @media only screen and (min-width: 768px) {
+
+                    article {
+                        margin-left: 15%;
+                        margin-right: 15%;
+                    }
+
                 }
             `}</style>
             <Head>
