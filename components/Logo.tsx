@@ -34,7 +34,13 @@ export default function Logo<Any>() {
                 svg {
                     border: none;
                     border-radius: 70%;
+                    position: relative;
                 }
+
+                foreign {
+                    position: absolute;
+                }
+
                 @font-face {
                     font-family: "Monaco";
                     src: url('https://fonts.cdnfonts.com/css/monaco');
@@ -80,7 +86,7 @@ export default function Logo<Any>() {
                 
                 #matrix div {
                     /* writing-mode: tb-rl; - ughh. doesn't work */
-                    position: absolute;	
+                    /* position: absolute; - test without this one first	*/
                     top: 0;
                     /* arrearance */
                     transform-origin: 0%;
@@ -136,7 +142,7 @@ export default function Logo<Any>() {
                 <a>
                     <svg className={'logo'} width="70" height="200" viewBox="-1 30 138 310" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g>
-                            <foreignObject x='19' y='58' width='100' height='200'>
+                            <foreignObject className="foreign" x='19' y='58' width='100' height='200'>
                                 <div id="matrix">	
                                     <div className="d1 c1 de" style={{left: "0px"}}>
                                         <p>0</p>
