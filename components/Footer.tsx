@@ -1,4 +1,19 @@
+import { useRouter } from 'next/router'
+import { extractSubject, themes } from '@/lib/subjects'
+
 export default function Footer<Any>() {
+    const router = useRouter()
+    const subject = extractSubject(router.pathname)
+    const theme = !subject ? '#ff0000' : themes.get(subject)
+
+    let intro: string
+
+    if (router.pathname.substring(0, 3) === '/en') {
+        intro = 'by'
+    } else if (router.pathname.substring(0, 3) === '/pt') {
+        intro = 'por'
+    }
+
     return (
         <footer>
             <style jsx>{`
@@ -21,10 +36,15 @@ export default function Footer<Any>() {
                     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
                     border: none;
                 }
+
+                ::selection {
+                    background-color: ${theme};
+                    color: white;
+                }
             
             `}</style>
             <hr/>
-            <p>by <strong>Rafael Alves 🧠📚💰🌌</strong></p>
+            <p>{intro} <strong>Rafael Alves 🧠📚💰🌌</strong></p>
         </footer>
     )
 }
