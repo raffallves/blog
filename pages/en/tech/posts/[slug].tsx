@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 // Get all possible path names to enable dynamic paths
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = await getAllPostSlugs()
+    const paths = await getAllPostSlugs(getFromDirPath(__dirname, 'lang'))
     return {
         paths,
         fallback: false

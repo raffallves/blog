@@ -22,7 +22,7 @@ There are a few important things one has to know in order to use this as a perso
 
 To run the code in development mode, type the command `npm run dev` from the root folder in the CLI.
 
-To build the code for production, type `next build` instead.
+To build the code for production, type `npm run build` instead.
 
 ### Adding new posts
 
