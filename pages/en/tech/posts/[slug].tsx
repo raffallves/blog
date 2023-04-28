@@ -58,6 +58,7 @@ export default function Post({ source }) {
         h6: Heading.H6,
     }
 
+    // 'Scroll back to top' button's functionality
     useEffect(() => {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {

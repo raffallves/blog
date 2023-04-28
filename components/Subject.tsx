@@ -8,6 +8,7 @@ import Enter from '@/components/icons/Enter'
 
 export default function Subject<Any>({ id, subject, image, description, theme, posts }) {
     const router = useRouter()
+    // Choose the subject icon based on the subject's id
     let icon
     let slug
 
@@ -16,10 +17,11 @@ export default function Subject<Any>({ id, subject, image, description, theme, p
         slug = '/tech'
     }
 
-    let counter = 0
+    // Count the number of posts for the given subject
+    let postCounter = 0
     for (let i = 0; i < posts.length; i++) {
         if (posts[i].file.includes(slug.substring(1, slug.length - 1))) {
-            counter++
+            postCounter++
         }
     }
     
@@ -122,7 +124,7 @@ export default function Subject<Any>({ id, subject, image, description, theme, p
                         alt=""/>
                     </div>
                     <div className='title-wrapper'>
-                        <div className='title'>{counter} {counter === 1 ? 'post' : 'posts'}</div>
+                        <div className='title'>{postCounter} {postCounter === 1 ? 'post' : 'posts'}</div>
                         <h2>{subject}</h2>
                         <div className='subject-description'>{description}</div>
                         <div className='actions'>

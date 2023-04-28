@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 
 export default function Layout<Any>({ children }) {
     const router = useRouter()
+    // Ref that will be used to close the language menu on an outside click
     const layoutRef = useRef(null)
 
     // Change the html's lang attribute based on the pathname

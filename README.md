@@ -78,4 +78,6 @@ All you'll have to do is copy the folder structure of an existing language into 
 
 6. Inside the `LangMenu.tsx` component, import the flag for the new language and add it to the list of languages in the menu. You'll have to add the language file name (e.g. /en) to the second argument of the `string.replace()` function;
 
-7. On the `index.tsx` for the language folder, change the argument inside the `listPosts` functions, in the `getStaticProps` function, to be the target language's ISO 639-1 code.
+7. On the `index.tsx` for the language folder, change the argument inside the `listPosts` functions, in the `getStaticProps` function, to be the target language's ISO 639-1 code;
+
+8. Add the corresponding intro in the `Footer.tsx` component;

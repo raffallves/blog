@@ -11,12 +11,15 @@ export default function LangMenu<Any>({ layoutRef }) {
 
     // Close language menu with outside click
     useEffect(() => {
-        layoutRef.current.addEventListener('click', () => {
+        // Saving the ref in a variable prevents it from running into an error if the ref changes
+        // since its a react node
+        const node = layoutRef.current
+        node.addEventListener('click', () => {
             setIsShow(false)
         })
 
         return () => {
-            layoutRef.current.removeEventListener('click', () => {
+            node.removeEventListener('click', () => {
                 setIsShow(false)
             })
         }

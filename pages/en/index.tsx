@@ -5,6 +5,7 @@ import Subject from '@/components/Subject'
 import { getSubjects } from '@/lib/subjects'
 import { listPosts } from '@/lib/posts'
 
+// Returns a list of all posts in a given language to be counted by each subject
 export const getStaticProps: GetStaticProps = async () => {
     const posts = await listPosts('\\en')
     
