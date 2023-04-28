@@ -9,15 +9,10 @@ import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import remarkPrism from 'remark-prism'
 import { Paragraph, Heading } from '@/components/mdx/style'
-import { getFromDirPath } from '@/lib/directory'
 
 // Retrieves the post's data based on the current path
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const postData = await getPostData(
-        params.slug, 
-        getFromDirPath(__dirname, 'lang'), 
-        getFromDirPath(__dirname, 'subject')
-    )
+    const postData = await getPostData(params.slug, 'en', 'tech')
     const mdxSource = await serialize(postData.stringData, { 
         parseFrontmatter: true, 
         mdxOptions: {
@@ -34,7 +29,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 // Get all possible path names to enable dynamic paths
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = await getAllPostSlugs(getFromDirPath(__dirname, 'lang'))
+    const paths = await getAllPostSlugs('\\en')
     return {
         paths,
         fallback: false
