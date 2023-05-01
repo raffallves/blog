@@ -97,9 +97,9 @@ export default function Logo<Any>({ theme }) {
                     top: 20px;
                     margin-left: auto;
                     margin-right: auto;	
-                    // -moz-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%))
-                    // -webkit-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
-                    // clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
+                    -moz-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%))
+                    -webkit-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
+                    clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
                 }
                 
                 @media (prefers-reduced-motion) {
