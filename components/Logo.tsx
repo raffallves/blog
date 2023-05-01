@@ -1,4 +1,58 @@
+import { useEffect, useRef } from 'react'
+
 export default function Logo<Any>({ theme }) {
+    const canvasRef = useRef(null)
+
+    // Creates the canvas logo animation
+    useEffect(() => {
+        // Initializing the canvas
+        const canvas = canvasRef.current
+        const context = canvas.getContext('2d')
+        let animationId
+
+        // Setting up the canvas size
+        canvas.width = 48
+        canvas.height = 100
+
+        // Create number array
+        const numbers = [0, 1]
+
+        // Setting up the columns
+        const fontSize = 10
+        const columns = canvas.width / fontSize
+
+        // Setting up the drops
+        const drops = []
+        for (let i = 0; i < columns; i++) {
+            drops[i] = 1
+        }
+
+        // Setting up the draw function
+        function draw() {
+            context.fillStyle = 'rgba(0, 0, 0, .1)'
+            context.fillRect(0, 0, canvas.width, canvas.height)
+            for (let i = 0; i < drops.length; i++) {
+                const text = numbers[Math.floor(Math.random() * numbers.length)]
+                context.fillStyle = theme
+                context.fillText(text, i * fontSize, drops[i] * fontSize)
+                drops[i]++
+                if (drops[i] * fontSize > canvas.height && Math.random() > .95) {
+                    drops[i] = 0
+                }
+            }
+            // Loop the animation
+            animationId = window.requestAnimationFrame(draw)
+        }
+
+        animationId = window.requestAnimationFrame(draw)
+
+        return () => {
+            window.cancelAnimationFrame(animationId)
+            context.clearRect(50, 0, 48, 100)
+        }
+
+    }, [canvasRef, theme])
+
     return (
         <>
             <style jsx>{`
@@ -34,93 +88,33 @@ export default function Logo<Any>({ theme }) {
                     fill: transparent;
                 }
 
-                @import url('https://fonts.cdnfonts.com/css/monaco');
-
                 #matrix {
                     margin: 1em auto;
-                    font-family: 'Monaco', sans-serif;
-                    font-size: .9em;
-                    font-weight: bold;
-                    width: 48px;
-                    height: 100px;
-                    overflow: hidden;
                     background: #000;
-                    color: ${theme};
                     position: absolute;
                     left: 0;
                     right: 0;
                     top: 20px;
                     margin-left: auto;
                     margin-right: auto;	
-                    border-top-right-radius: 90%;
-                    border-top-left-radius: 100%;
-                    border-bottom-left-radius: 70%;
-                    border-bottom-right-radius: 70%;
-                }
-
-                @-webkit-keyframes fade {
-                    0%   { opacity: 1; }
-                    100% { opacity: 0; }
-                }
-
-                @-webkit-keyframes fall {
-                    from { top: -250px; }
-                    to 	{ top: 300px; }
+                    -moz-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%))
+                    -webkit-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
+                    clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
                 }
                 
-                
-                #matrix div {
-                    /* writing-mode: tb-rl; - ughh. doesn't work */
-                    position: absolute;	
-                    top: 0;
-                    /* arrearance */
-                    -webkit-transform-origin: 0%;
-                    -webkit-transform: rotate(90deg); 
-                    
-                    /* animation */
-                    -webkit-animation-name: fall, fade;			
-                    -webkit-animation-iteration-count: infinite; /* use 0 to infinite */
-                    -webkit-animation-direction: normal; /* default is normal. use 'alternate' to reverse direction */
-                    -webkit-animation-timing-function: ease-out;
-                }
-
-                #matrix span {
-                    color: ${theme};
-                }
-
-                .f1 {
-                    font-size: 1px;
-                }
-
-                .f2 {
-                    font-size: 1px;
-                }
-
-                .c1 {
-                    color: ${theme};
-                }
-
-                .d1 {
-                    -webkit-animation-duration: 5s;
-                }
-                
-                .d2 {
-                    -webkit-animation-duration: 6s;
-                }
-
-                .d3 {
-                    -webkit-animation-duration: 8s;
-                }
-
-                .de {	
-                    -webkit-animation-delay: 4s;
-                }
-
                 @media (prefers-reduced-motion) {
                     #matrix {
                         display: none;
                     }
                 }
+
+                @supports not (clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%)) 
+                or not (-webkit-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%)) 
+                or not (-moz-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%)) {
+                    #matrix {
+                        display: none;
+                    }
+                  }
 
             `}</style>
             <svg className={'logo'} width="70" height="200" viewBox="-1 30 138 310" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,15 +129,8 @@ export default function Logo<Any>({ theme }) {
                     <path id={'inner'} d="M27.9277 187.176L69.602 259.368L111.336 187.176L69.602 72.6953L27.9277 187.176Z"/>
                 </g>
             </svg>
-            <div id="matrix">	
-                <div className="d1 c1 de" style={{left: 10}}>101<span>1</span>010101<span>0</span>101</div>
-                <div className="d1 f2 c1" style={{left: 18}}>11<span>0</span>00101111000<span>0</span></div>
-                <div className="d2 f1" style={{left: 20}}>1101<span>0</span>0101110010</div>
-                <div className="d2 c1" style={{left: 25}}>0101011011100011010<span>0</span>10</div>
-                <div className="d3 f2 c1" style={{left: 30}}>001<span>0</span>0101000</div>
-                <div className="d1 c1" style={{left: 35}}>0101<span>001</span>111001<span>0</span>110</div>
-                <div className="d3 de" style={{left: 45}}>11101<span>0</span>11</div>
-            </div>
+            <canvas id="matrix" ref={canvasRef}>	
+            </canvas>
         </>
     )
 }

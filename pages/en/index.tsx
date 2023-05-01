@@ -61,7 +61,8 @@ const Home = ({ posts }) => {
                     key={d.id}
                     id={d.id}
                     subject={d.subject} 
-                    image={d.image} 
+                    imageDesktop={d.imageDesktop}
+                    imageMobile={d.imageMobile} 
                     description={d.description}
                     theme={d.theme}
                     posts={posts} />

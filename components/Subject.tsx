@@ -4,9 +4,13 @@ import { useRouter } from 'next/router'
 import Tech from '@/components/icons/subjects/Tech'
 import Question from '@/components/icons/Question'
 import Enter from '@/components/icons/Enter'
+import { useWindowWidth } from '@/hooks/window'
 
 
-export default function Subject<Any>({ id, subject, image, description, theme, posts }) {
+export default function Subject<Any>({ id, subject, imageDesktop, imageMobile, description, theme, posts }) {
+    // Custom hook for getting the width of the viewport
+    const windowWidth = useWindowWidth()
+
     const router = useRouter()
     // Choose the subject icon based on the subject's id
     let icon
@@ -24,6 +28,7 @@ export default function Subject<Any>({ id, subject, image, description, theme, p
             postCounter++
         }
     }
+
     
     return (
         <>
@@ -111,6 +116,33 @@ export default function Subject<Any>({ id, subject, image, description, theme, p
                     background-color: ${theme};
                     color: white;
                 }
+
+                @media screen and (max-width: 500px) {
+                    .box {
+                        max-height: 500px;
+                    }
+
+                    .box-text {
+                        grid-template-rows: 1fr 2fr;
+                        grid-template-columns: none;
+                    }
+
+                    .subject-icon {
+                        top: 80px;
+                        left: 20px;
+                    }
+
+                    .title-wrapper {
+                        padding: 1em 1.5em 1em 1.5em;
+                    }
+
+                    .subject-image {
+                        border-bottom-left-radius: 0px;
+                        border-top-right-radius: 25px;
+                        height: 120px;
+                    }
+
+                }
                 
             `}</style>
             <div className='box'>
@@ -118,9 +150,9 @@ export default function Subject<Any>({ id, subject, image, description, theme, p
                 <div className='box-text'>
                     <div className='subject-image'>
                         <Image 
-                        src={image} 
-                        width='160'
-                        height='330' 
+                        className='sb-img'
+                        src={windowWidth > 500 ? imageDesktop : imageMobile} 
+                        fill 
                         alt=""/>
                     </div>
                     <div className='title-wrapper'>

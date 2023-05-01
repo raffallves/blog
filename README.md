@@ -50,7 +50,7 @@ To add a new subject on the blog, there are a few steps you must take:
 
 3. Create a `posts` folder under the subject's folder, and add a `[slug].tsx` file to it. This will be the template for the dynamic route — all posts on that subject will use the same template;
 
-4. Choose an image that you think better represents that subject and put that inside the `public/subjects` folder. The recommended format is `png`, and the recommended size is 162x288 (which can change depending on what I do to the `Subject.tsx` component);
+4. Choose an image that you think better represents that subject and put that inside the `public/subjects` folder. The recommended format is `png`, and the recommended size is 162x288. You're going to want to place two versions of the same picture there: one horizontal and one vertical, since the subject component is going to use a different one depending on if viewport is loaded in the desktop or mobile size. I suggest putting a letter at the end of the file to differentiate between them (e.g. `techM.png`, `tecbD.png`);
 
 5. Inside the `lib/subjects` file, add an entry to the data array of the respective language in which you intend to add the subject to, containing: subject's id, subject's title (translated), image path (from the public folder), subject's description, and a theme (darker colors work best, and try to pick one that's as different from the existing ones as possible);
 

@@ -58,7 +58,7 @@ export default function LangMenu<Any>({ layoutRef }) {
                     display: flex;
                     justify-content: center;
                     position: absolute;
-                    top: 70px;
+                    top: 65px;
                     left: 5px;
                 }
 
