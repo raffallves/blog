@@ -97,9 +97,9 @@ export default function Logo<Any>({ theme }) {
                     top: 20px;
                     margin-left: auto;
                     margin-right: auto;	
-                    -moz-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%))
-                    -webkit-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
-                    clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
+                    // -moz-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%))
+                    // -webkit-clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
+                    // clip-path: polygon(50% 0%, 100% 70%, 50% 100%, 0% 70%);
                 }
                 
                 @media (prefers-reduced-motion) {
@@ -129,7 +129,7 @@ export default function Logo<Any>({ theme }) {
                     <path id={'inner'} d="M27.9277 187.176L69.602 259.368L111.336 187.176L69.602 72.6953L27.9277 187.176Z"/>
                 </g>
             </svg>
-            <canvas id="matrix" ref={canvasRef}>	
+            <canvas id="matrix" ref={canvasRef} style={{width: 48, height: 100}}>	
             </canvas>
         </>
     )
