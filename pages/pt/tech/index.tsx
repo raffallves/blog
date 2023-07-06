@@ -99,7 +99,9 @@ const Home: NextPage = ({ allPostsData }: InferGetStaticPropsType<typeof getStat
             <h1>O que penso sobre <mark>Tecnologia</mark></h1>
 
             <section className={'posts-section'}>
-                {allPostsData.map(({slug, date, title, description}) => (
+                {!allPostsData.length 
+                ? <p>Não há posts para ver aqui.</p>
+                : allPostsData.map(({slug, date, title, description}) => (
                     <div key={slug} className='post-link'>
                         <h2>{title}</h2>
                         <p>{description}</p>

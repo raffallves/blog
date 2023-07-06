@@ -54,6 +54,10 @@ const Home: NextPage = ({ allPostsData }: InferGetStaticPropsType<typeof getStat
                     gap: 1em;
                 }
 
+                .posts-section p {
+                    font-size: 1.1em;
+                }
+
                 .post-link {
                     width: 100%;
                 }
@@ -89,7 +93,9 @@ const Home: NextPage = ({ allPostsData }: InferGetStaticPropsType<typeof getStat
             <h1>My thoughts on <mark>Tech</mark></h1>
 
             <section className={'posts-section'}>
-                {allPostsData.map(({slug, date, title, description}) => (
+                {!allPostsData.length 
+                ? <p>There are no posts to see here. Come back some other time.</p>
+                : allPostsData.map(({slug, date, title, description}) => (
                     <div key={slug} className='post-link'>
                         <h2>{title}</h2>
                         <p>{description}</p>

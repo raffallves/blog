@@ -58,6 +58,10 @@ const H2 = ({ children }) => {
     return (
         <>
             <style jsx>{`
+                .mdx-h2 {
+                    margin: 2em 0 2em 0;
+                }
+
                 .mdx-h2::-moz-selection {
                     background-color: ${theme};
                     color: white;
